@@ -17,4 +17,34 @@ class HomeController extends Controller
     {
         return $this->render('index');
     }
+
+    public  function actionResults()
+    {
+        return $this->render('Results');
+    }
+
+    public function actionSportNews()
+    {
+        return $this->render('sportNews');
+    }
+
+    public function actionWhatIsBetting()
+    {
+        return $this->render('whatIsBetting');
+    }
+
+    public function actionTypesOfBets()
+    {
+        return $this->render('TypesOfBets');
+    }
+
+    public function actionEuro2016()
+    {
+        return $this->render('Euro2016');
+    }
+
+    public function actionWorldCup2018()
+    {
+        return $this->render('WorldCup2018');
+    }
 }

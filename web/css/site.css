@@ -89,3 +89,25 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.stream {
+    width: 268px;
+    height: 100px;
+    margin: 3px;
+}
+.stream > img {
+    max-width: 100%;
+    width: auto\9;
+    height: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+.layer1 {
+    padding: 5px; /* Поля вокруг текста */
+    float: left; /* Обтекание по правому краю */
+}
+.layer2 {
+    padding: 5px; /* Поля вокруг текста */
+    float: left; /* Обтекание по правому краю */
+}
