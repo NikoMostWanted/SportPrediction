@@ -9,17 +9,18 @@ $this->params['breadcrumbs'][] = $this->title;
 AppAsset::register($this);
 ?>
 <div class="container" align="center">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/406.png" alt="Александрия">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/77.png" alt="Волынь">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/78.png" alt="Ворскла">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/80.png" alt="Говерла">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/23.png" alt="Динамо К">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/79.png" alt="Днепр">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/219.png" alt="Заря">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/220.png" alt="Карпаты">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/71.png" alt="Металлист">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/407.png" alt="Олимпик Д">
-    <img src="http://s.ill.in.ua/i/football/team/logo/0x50/292.jpg" alt="Сталь Д">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/73.png" alt="Черноморец">
-    <img src="http://s.ill.in.ua/i/football/team/logo_sm/0x50/24.png" alt="Шахтер">
+    <img src="../../../web/css/images/upl/406.png"/>
+    <img src="../../../web/css/images/upl/77.png"/>
+    <img src="../../../web/css/images/upl/78.png"/>
+    <img src="../../../web/css/images/upl/80.png"/>
+    <img src="../../../web/css/images/upl/23.png"/>
+    <img src="../../../web/css/images/upl/79.png"/>
+    <img src="../../../web/css/images/upl/219.png"/>
+    <img src="../../../web/css/images/upl/220.png"/>
+    <img src="../../../web/css/images/upl/71.png"/>
+    <img src="../../../web/css/images/upl/75.jpg"/>
+    <img src="../../../web/css/images/upl/407.png"/>
+    <img src="../../../web/css/images/upl/292.jpg"/>
+    <img src="../../../web/css/images/upl/73.png"/>
+    <img src="../../../web/css/images/upl/24.png"/>
 </div>

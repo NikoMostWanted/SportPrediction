@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public  function actionResults()
     {
-        return $this->render('Results');
+        return $this->render('results');
     }
 
     public function actionSportNews()
@@ -35,16 +35,16 @@ class HomeController extends Controller
 
     public function actionTypesOfBets()
     {
-        return $this->render('TypesOfBets');
+        return $this->render('typesOfBets');
     }
 
     public function actionEuro2016()
     {
-        return $this->render('Euro2016');
+        return $this->render('euro2016');
     }
 
     public function actionWorldCup2018()
     {
-        return $this->render('WorldCup2018');
+        return $this->render('worldCup2018');
     }
 }
