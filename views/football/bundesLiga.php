@@ -1,30 +1,24 @@
 <?php
 
 use app\assets\AppAsset;
+use Yii\base;
+use app\models\OutputImages;
 
 $this->title = 'BundesLiga';
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
-?>
 
+$path = Yii::$app->request->baseUrl;
+$dir = $_SERVER['DOCUMENT_ROOT'].$path.'/images/germany';
+$dirLocal = $path.'/images/germany/';
+$imageObject = new OutputImages();
+$all_pictures = $imageObject->outDirFile($dir);
+
+?>
 <div class="container" align="center">
-    <img src="../../../web/css/images/germany/aintraht.jpg"/>
-    <img src="../../../web/css/images/germany/augsburg.png"/>
-    <img src="../../../web/css/images/germany/bavaria.png"/>
-    <img src="../../../web/css/images/germany/bayer.jpg"/>
-    <img src="../../../web/css/images/germany/borussiad.jpg"/>
-    <img src="../../../web/css/images/germany/borussiam.jpg"/>
-    <img src="../../../web/css/images/germany/verder.png"/>
-    <img src="../../../web/css/images/germany/wolfsburg.jpg"/>
-    <img src="../../../web/css/images/germany/humburg.jpg"/>
-    <img src="../../../web/css/images/germany/herta.png"/>
-    <img src="../../../web/css/images/germany/darmshtat.png"/>
-    <img src="../../../web/css/images/germany/ingolshtadt.png"/>
-    <img src="../../../web/css/images/germany/keln.png"/>
-    <img src="../../../web/css/images/germany/mainc.png"/>
-    <img src="../../../web/css/images/germany/hoff.png"/>
-    <img src="../../../web/css/images/germany/shalke.jpg"/>
-    <img src="../../../web/css/images/germany/shtutgart.png"/>
+    <?php foreach($all_pictures as $picture) { ?>
+        <img src="<?=$dirLocal.$picture?>"/>
+    <?php } ?>
 </div>

@@ -1,26 +1,23 @@
 <?php
 
 use app\assets\AppAsset;
+use Yii\base;
+use app\models\OutputImages;
 
 $this->title = 'UkranianLigue';
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
+
+$path = Yii::$app->request->baseUrl;
+$dir = $_SERVER['DOCUMENT_ROOT'].$path.'/images/upl';
+$dirLocal = $path.'/images/upl/';
+$imageObject = new OutputImages();
+$all_pictures = $imageObject->outDirFile($dir);
 ?>
 <div class="container" align="center">
-    <img src="../../../web/css/images/upl/406.png"/>
-    <img src="../../../web/css/images/upl/77.png"/>
-    <img src="../../../web/css/images/upl/78.png"/>
-    <img src="../../../web/css/images/upl/80.png"/>
-    <img src="../../../web/css/images/upl/23.png"/>
-    <img src="../../../web/css/images/upl/79.png"/>
-    <img src="../../../web/css/images/upl/219.png"/>
-    <img src="../../../web/css/images/upl/220.png"/>
-    <img src="../../../web/css/images/upl/71.png"/>
-    <img src="../../../web/css/images/upl/75.jpg"/>
-    <img src="../../../web/css/images/upl/407.png"/>
-    <img src="../../../web/css/images/upl/292.jpg"/>
-    <img src="../../../web/css/images/upl/73.png"/>
-    <img src="../../../web/css/images/upl/24.png"/>
+    <?php foreach($all_pictures as $picture) { ?>
+        <img src="<?=$dirLocal.$picture?>"/>
+    <?php } ?>
 </div>
