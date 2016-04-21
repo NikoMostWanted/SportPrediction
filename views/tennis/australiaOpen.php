@@ -1,13 +1,16 @@
 <?php
 
 use app\assets\AppAsset;
+use Yii\base;
 use yii\bootstrap\Nav;
 
 $this->title = 'AustraliaOpen';
 $this->params['breadcrumbs'][] = ['label' => 'Tennis', 'url' => ['tennis/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
+
 AppAsset::register($this);
+
 ?>
 
 <div class="container">
@@ -37,7 +40,7 @@ AppAsset::register($this);
                         'visible' => Yii::$app->user->isGuest
                     ],
                 ],
-                'options' => ['class' => ' nav nav-pills nav-stacked'],
+                'options' => ['class' => ' nav navbar-default nav-pills nav-stacked'],
             ]);
             ?>
         </div>

@@ -63,7 +63,7 @@ $all_pictures = $imageObject->outDirFile($dir);
                             'visible' => Yii::$app->user->isGuest
                         ],
                     ],
-                    'options' => ['class' => ' nav nav-pills nav-stacked'],
+                    'options' => ['class' => ' nav  navbar-default nav-pills nav-stacked'],
                 ]);
                 ?>
             </div>
@@ -76,13 +76,13 @@ $all_pictures = $imageObject->outDirFile($dir);
                         <?php } ?>
                     </ol>
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img style="width: 500px;height: 300px" src="<?=$dirLocal.$all_pictures[0]?>" alt="">
+                        <div class="item active image-size">
+                            <img  src="<?=$dirLocal.$all_pictures[0]?>" alt="">
                         </div>
                         <?php array_shift($all_pictures); ?>
                         <?php foreach($all_pictures as $picture) { ?>
-                            <div class="item">
-                                <img style="width: 500px;height: 300px" src="<?=$dirLocal.$picture?>" alt="">
+                            <div class="item image-size">
+                                <img  src="<?=$dirLocal.$picture?>" alt="">
                             </div>
                         <?php } ?>
                     </div>

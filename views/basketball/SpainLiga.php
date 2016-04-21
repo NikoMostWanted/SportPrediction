@@ -36,7 +36,7 @@ AppAsset::register($this);
                         'visible' => Yii::$app->user->isGuest
                     ],
                 ],
-                'options' => ['class' => ' nav nav-pills nav-stacked'],
+                'options' => ['class' => ' nav  navbar-default nav-pills nav-stacked'],
             ]);
             ?>
         </div>

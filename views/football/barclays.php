@@ -4,6 +4,7 @@ use app\assets\AppAsset;
 use Yii\base;
 use app\models\OutputImages;
 use yii\bootstrap\Nav;
+use yii\bootstrap\Alert;
 
 $this->title = 'Barclays';
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
@@ -54,13 +55,20 @@ $all_pictures = $imageObject->outDirFile($dir);
                         'visible' => Yii::$app->user->isGuest
                     ],
                 ],
-                'options' => ['class' => ' nav nav-pills nav-stacked'],
+                'options' => ['class' => ' nav navbar-default nav-pills nav-stacked'],
             ]);
             ?>
         </div>
-        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 image-center">
+            <?php
+            echo Alert::widget([
+                'options' => [
+                    'class' => 'alert-info'
+                ],
+                'body' => '<b>Click</b> on the <b>logo</b> for more information about the team &darr;'
+            ]); ?>
             <?php foreach($all_pictures as $picture) { ?>
-                <img src="<?=$dirLocal.$picture?>"/>
+                <img class="image-wrap" src="<?=$dirLocal.$picture?>"/>
             <?php } ?>
         </div>
     </div>
