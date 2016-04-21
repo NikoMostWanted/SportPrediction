@@ -104,10 +104,14 @@ a.desc:after {
 }
 
 .layer1 {
-    padding: 5px; /* Поля вокруг текста */
-    float: left; /* Обтекание по правому краю */
+    padding: 5px;
+    float: left;
 }
 .layer2 {
-    padding: 5px; /* Поля вокруг текста */
-    float: left; /* Обтекание по правому краю */
+    padding: 5px;
+    float: left;
+}
+.carousel-size {
+    height: 300px;
+    width: 500px;
 }
