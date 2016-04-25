@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.13.1deb1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2016 at 01:11 AM
--- Server version: 5.6.28-0ubuntu0.15.10.1
--- PHP Version: 5.6.11-1ubuntu3.1
+-- Generation Time: Apr 25, 2016 at 09:01 pm
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,11 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `coachs`
 --
 
-CREATE TABLE IF NOT EXISTS `coachs` (
+CREATE TABLE `coachs` (
   `id` int(11) NOT NULL,
-  `name` char(255) COLLATE utf8_bin NOT NULL,
-  `surname` char(255) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `name` char(255) NOT NULL,
+  `surname` char(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `coachs` (
 -- Table structure for table `leagues`
 --
 
-CREATE TABLE IF NOT EXISTS `leagues` (
+CREATE TABLE `leagues` (
   `id` int(11) NOT NULL,
-  `nameLeague` char(255) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `nameLeague` char(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -49,11 +49,11 @@ CREATE TABLE IF NOT EXISTS `leagues` (
 -- Table structure for table `presidents`
 --
 
-CREATE TABLE IF NOT EXISTS `presidents` (
+CREATE TABLE `presidents` (
   `id` int(11) NOT NULL,
-  `name` char(255) COLLATE utf8_bin NOT NULL,
-  `surname` char(255) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `name` char(255) NOT NULL,
+  `surname` char(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `presidents` (
 -- Table structure for table `statistics`
 --
 
-CREATE TABLE IF NOT EXISTS `statistics` (
+CREATE TABLE `statistics` (
   `id` int(11) NOT NULL,
   `points` int(11) NOT NULL,
   `games` int(11) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `statistics` (
   `goals` int(11) NOT NULL,
   `missing` int(11) NOT NULL,
   `place` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -79,17 +79,17 @@ CREATE TABLE IF NOT EXISTS `statistics` (
 -- Table structure for table `teams`
 --
 
-CREATE TABLE IF NOT EXISTS `teams` (
+CREATE TABLE `teams` (
   `id` int(11) NOT NULL,
   `id_nameLeague` int(11) NOT NULL,
-  `nameTeam` char(255) COLLATE utf8_bin NOT NULL,
+  `nameTeam` char(255) NOT NULL,
   `icon` blob NOT NULL,
   `foundationYear` int(11) NOT NULL,
-  `field` char(255) COLLATE utf8_bin NOT NULL,
+  `field` char(255) NOT NULL,
   `id_coach` int(11) NOT NULL,
   `id_president` int(11) NOT NULL,
   `id_statistic` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -130,19 +130,6 @@ ALTER TABLE `teams`
   ADD KEY `idCoachIndex` (`id_coach`),
   ADD KEY `idPresidentIndex` (`id_president`),
   ADD KEY `id_statistic` (`id_statistic`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `teams`
---
-ALTER TABLE `teams`
-  ADD CONSTRAINT `teams_ibfk_1` FOREIGN KEY (`id_nameLeague`) REFERENCES `leagues` (`id`),
-  ADD CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`id_coach`) REFERENCES `coachs` (`id`),
-  ADD CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`id_president`) REFERENCES `presidents` (`id`),
-  ADD CONSTRAINT `teams_ibfk_4` FOREIGN KEY (`id_statistic`) REFERENCES `statistics` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
