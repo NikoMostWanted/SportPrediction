@@ -4,6 +4,8 @@ use app\assets\AppAsset;
 use Yii\base;
 
 AppAsset::register($this);
+
+$this->title = 'SportPrediction';
 ?>
 <div class="row">
     <?php $this->beginContent('@app/views/layouts/homeNavbar.php'); ?>

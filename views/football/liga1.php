@@ -2,12 +2,14 @@
 
 use app\assets\AppAsset;
 use Yii\base;
+use yii\helpers\Html;
 
 $this->title = 'Liga1';
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
+$i = 0;
 ?>
 <div class="row">
     <?php $this->beginContent('@app/views/layouts/footballNavbar.php'); ?>
@@ -16,7 +18,7 @@ AppAsset::register($this);
         <?php $this->beginContent('@app/views/layouts/footballAlert.php'); ?>
         <?php $this->endContent(); ?>
         <?php foreach ($all_pictures as $picture) { ?>
-            <img class="image-wrap" src="<?= $dirLocal . $picture ?>"/>
+            <?php echo Html::a("<img class='image-wrap' src='".$dirLocal.$picture."'/>", ['football/info-club', 'name'=>$name_pictures[$i++]]) ?>
         <?php } ?>
     </div>
 </div>
