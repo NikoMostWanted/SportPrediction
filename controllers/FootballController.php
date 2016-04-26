@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
+use app\models\OutputImages;
 
 class FootballController extends Controller
 {
@@ -20,31 +21,43 @@ class FootballController extends Controller
 
     public function actionLaLiga()
     {
-        return $this->render('laLiga');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/spain');
+        return $this->render('laLiga',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public function actionBundesLiga()
     {
-        return $this->render('bundesLiga');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/germany');
+        return $this->render('bundesLiga',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public function actionSeriaA()
     {
-        return $this->render('seriaA');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/italy');
+        return $this->render('seriaA',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public function actionBarclays()
     {
-        return $this->render('barclays');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/apl');
+        return $this->render('barclays',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public function actionLiga1()
     {
-        return $this->render('liga1');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/france');
+        return $this->render('liga1',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public function actionUkranianLigue()
     {
-        return $this->render('ukranianLigue');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/upl');
+        return $this->render('ukranianLigue',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 }

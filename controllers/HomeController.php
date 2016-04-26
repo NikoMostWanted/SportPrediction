@@ -10,12 +10,15 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
+use app\models\OutputImages;
 
 class HomeController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+        $outImg = new OutputImages();
+        $data = $outImg->outImages('/images/carousel');
+        return $this->render('index',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures']]);
     }
 
     public  function actionResults()

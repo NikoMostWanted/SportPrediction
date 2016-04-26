@@ -2,19 +2,12 @@
 
 use app\assets\AppAsset;
 use Yii\base;
-use app\models\OutputImages;
 
 $this->title = 'SeriaA';
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
-
-$path = Yii::$app->request->baseUrl;
-$dir = $_SERVER['DOCUMENT_ROOT'] . $path . '/images/italy';
-$dirLocal = $path . '/images/italy/';
-$imageObject = new OutputImages();
-$all_pictures = $imageObject->outDirFile($dir);
 ?>
 <div class="row">
     <?php $this->beginContent('@app/views/layouts/footballNavbar.php'); ?>

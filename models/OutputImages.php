@@ -8,15 +8,16 @@
 
 namespace app\models;
 
+use Yii;
 
 class OutputImages
 {
-    public function outDirFile($directory)
+    private function outDirFile($directory)
     {
         $all_picture = array();
-        $dir_handle = @opendir($directory) or die("Error open directory");
+        $dir_handle = @opendir($directory);
         $i = 0;
-        while ($file = readdir($dir_handle))
+        while ($file = @readdir($dir_handle))
         {
             if($file=="." || $file == "..") continue;
             $all_picture[$i] = $file;
@@ -24,5 +25,14 @@ class OutputImages
         }
         closedir($dir_handle);
         return $all_picture;
+    }
+
+    public function outImages($url)
+    {
+        $path = Yii::$app->request->baseUrl;
+        $dir = $_SERVER['DOCUMENT_ROOT'] . $path . $url;
+        $dirLocal = $path . $url .'/';
+        $all_pictures = $this->outDirFile($dir);
+        return ['dirLocal'=>$dirLocal, 'all_pictures'=>$all_pictures];
     }
 }

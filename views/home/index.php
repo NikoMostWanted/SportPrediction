@@ -2,16 +2,8 @@
 use yii\helpers\Html;
 use app\assets\AppAsset;
 use Yii\base;
-use app\models\OutputImages;
 
 AppAsset::register($this);
-
-$path = Yii::$app->request->baseUrl;
-$dir = $_SERVER['DOCUMENT_ROOT'] . $path . '/images/carousel';
-$dirLocal = $path . '/images/carousel/';
-$imageObject = new OutputImages();
-$all_pictures = $imageObject->outDirFile($dir);
-
 ?>
 <div class="row">
     <?php $this->beginContent('@app/views/layouts/homeNavbar.php'); ?>
