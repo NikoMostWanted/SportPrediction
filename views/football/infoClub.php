@@ -5,7 +5,8 @@ use Yii\base;
 use yii\bootstrap\Nav;
 
 $this->title = $data['nameTeam'];
-$this->params['breadcrumbs'][] = ['label' => 'Barclays', 'url' => ['football/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
+$this->params['breadcrumbs'][] = ['label' => 'La Liga', 'url' => ['football/la-liga']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
