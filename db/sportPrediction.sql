@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2016 at 03:44 pm
+-- Generation Time: Apr 27, 2016 at 10:16 pm
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -35,12 +35,53 @@ CREATE TABLE `coachs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
+  `nameCountry` char(255) NOT NULL,
+  `icon` char(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `leagues`
 --
 
 CREATE TABLE `leagues` (
   `id` int(11) NOT NULL,
   `nameLeague` char(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `players`
+--
+
+CREATE TABLE `players` (
+  `id` int(11) NOT NULL,
+  `name` char(255) NOT NULL,
+  `surname` char(255) NOT NULL,
+  `birthday` date NOT NULL,
+  `number` int(11) NOT NULL,
+  `id_team` int(11) NOT NULL,
+  `id_country` int(11) NOT NULL,
+  `id_position` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `positions`
+--
+
+CREATE TABLE `positions` (
+  `id` int(11) NOT NULL,
+  `position` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,6 +125,7 @@ CREATE TABLE `teams` (
   `id_nameLeague` int(11) NOT NULL,
   `nameTeam` char(255) NOT NULL,
   `icon` char(255) NOT NULL,
+  `website` char(255) NOT NULL,
   `foundationYear` int(11) NOT NULL,
   `field` char(255) NOT NULL,
   `id_coach` int(11) NOT NULL,
@@ -92,14 +134,17 @@ CREATE TABLE `teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `coachs`
 --
 ALTER TABLE `coachs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nameCountryIndex` (`nameCountry`);
 
 --
 -- Indexes for table `leagues`
@@ -107,6 +152,22 @@ ALTER TABLE `coachs`
 ALTER TABLE `leagues`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nameLeagueIndex` (`nameLeague`);
+
+--
+-- Indexes for table `players`
+--
+ALTER TABLE `players`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_positionIndex` (`id_position`),
+  ADD KEY `id_countryIndex` (`id_country`),
+  ADD KEY `id_teamIndex` (`id_team`);
+
+--
+-- Indexes for table `positions`
+--
+ALTER TABLE `positions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `positionIndex` (`position`);
 
 --
 -- Indexes for table `presidents`
@@ -134,6 +195,14 @@ ALTER TABLE `teams`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `players`
+--
+ALTER TABLE `players`
+  ADD CONSTRAINT `players_ibfk_1` FOREIGN KEY (`id_country`) REFERENCES `countries` (`id`),
+  ADD CONSTRAINT `players_ibfk_2` FOREIGN KEY (`id_position`) REFERENCES `positions` (`id`),
+  ADD CONSTRAINT `players_ibfk_3` FOREIGN KEY (`id_team`) REFERENCES `teams` (`id`);
 
 --
 -- Constraints for table `teams`
