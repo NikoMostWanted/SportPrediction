@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2016 at 09:01 pm
+-- Generation Time: Apr 27, 2016 at 03:44 pm
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -30,7 +30,7 @@ CREATE TABLE `coachs` (
   `id` int(11) NOT NULL,
   `name` char(255) NOT NULL,
   `surname` char(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `coachs` (
 CREATE TABLE `leagues` (
   `id` int(11) NOT NULL,
   `nameLeague` char(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE `presidents` (
   `id` int(11) NOT NULL,
   `name` char(255) NOT NULL,
   `surname` char(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,7 @@ CREATE TABLE `statistics` (
   `goals` int(11) NOT NULL,
   `missing` int(11) NOT NULL,
   `place` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -83,13 +83,13 @@ CREATE TABLE `teams` (
   `id` int(11) NOT NULL,
   `id_nameLeague` int(11) NOT NULL,
   `nameTeam` char(255) NOT NULL,
-  `icon` blob NOT NULL,
+  `icon` char(255) NOT NULL,
   `foundationYear` int(11) NOT NULL,
   `field` char(255) NOT NULL,
   `id_coach` int(11) NOT NULL,
   `id_president` int(11) NOT NULL,
   `id_statistic` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -130,6 +130,19 @@ ALTER TABLE `teams`
   ADD KEY `idCoachIndex` (`id_coach`),
   ADD KEY `idPresidentIndex` (`id_president`),
   ADD KEY `id_statistic` (`id_statistic`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `teams`
+--
+ALTER TABLE `teams`
+  ADD CONSTRAINT `teams_ibfk_1` FOREIGN KEY (`id_nameLeague`) REFERENCES `leagues` (`id`),
+  ADD CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`id_statistic`) REFERENCES `statistics` (`id`),
+  ADD CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`id_president`) REFERENCES `presidents` (`id`),
+  ADD CONSTRAINT `teams_ibfk_4` FOREIGN KEY (`id_coach`) REFERENCES `coachs` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

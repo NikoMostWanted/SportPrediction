@@ -4,11 +4,12 @@ use app\assets\AppAsset;
 use Yii\base;
 use yii\bootstrap\Nav;
 
-$this->title = 'Arsenal';
+$this->title = $data['nameTeam'];
 $this->params['breadcrumbs'][] = ['label' => 'Barclays', 'url' => ['football/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
+
 ?>
 
 <div class="row">
@@ -18,31 +19,35 @@ AppAsset::register($this);
         <article class="info-article">
             <h3 class="feed-header">team profiles</h3>
                 <div class="info-logo">
-                    <img src="http://s.ill.in.ua/i/football/team/logo/0x160/25_logo.png" alt="Арсенал"> <!-- insert logo -->
+                    <img src="<?=Yii::$app->request->baseUrl;?><?=$data['icon']?>" alt="<?=$data['nameTeam']?>">
                 </div>
                 <div class="info-intro">
-                    <h1>Arsenal</h1>
+                    <h1><?=$data['nameTeam']?></h1>
                     <table class="info-page-table">
                         <tbody>
                             <tr>
                                 <td> Manager </td>
-                                <td> Jon Kesvik </td>
+                                <td> <?=$data['president']?> </td>
                             </tr>
                             <tr>
                                 <td> Coach</td>
-                                <td> Arsen Venger</td>
+                                <td> <?=$data['coach']?> </td>
                             </tr>
                             <tr>
                                 <td> Stadium</td>
-                                <td> Emirates Stadium</td>
+                                <td> <?=$data['field']?> </td>
                             </tr>
                             <tr>
                                 <td> Year of foundation</td>
-                                <td> 1886</td>
+                                <td> <?=$data['foundationYear']?> </td>
+                            </tr>
+                            <tr>
+                                <td> League</td>
+                                <td> <?=$data['nameLeague']?> </td>
                             </tr>
                             <tr>
                                 <td>Club website </td>
-                                <td> <a href="http://www.arsenal.com" target="_blank">http://www.arsenal.com</a></td>
+                                <td> <a href="<?=$data['website']?>" target="_blank"><?=$data['website']?></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -200,7 +205,7 @@ AppAsset::register($this);
                         <tr>
                             <td class="num">13</td>
                             <td class="nation">
-                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                             </td>
                             <td class="fio"> David Ospina</td>
                             <td class="birth"><p>31.08.1988</p></td>
@@ -208,7 +213,7 @@ AppAsset::register($this);
                         <tr>
                             <td class="num">13</td>
                             <td class="nation">
-                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                             </td>
                             <td class="fio"> David Ospina</td>
                             <td class="birth"><p>31.08.1988</p></td>
@@ -216,7 +221,7 @@ AppAsset::register($this);
                         <tr>
                             <td class="num">13</td>
                             <td class="nation">
-                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                             </td>
                             <td class="fio"> David Ospina</td>
                             <td class="birth"><p>31.08.1988</p></td>
@@ -224,7 +229,7 @@ AppAsset::register($this);
                         <tr>
                             <td class="num">13</td>
                             <td class="nation">
-                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                                <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                             </td>
                             <td class="fio"> David Ospina</td>
                             <td class="birth"><p>31.08.1988</p></td>
@@ -237,7 +242,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -245,7 +250,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -253,7 +258,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -261,7 +266,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -269,7 +274,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -277,7 +282,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">3</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Kiran Gibs</td>
                         <td class="birth"><p>26.09.1989</p></td>
@@ -290,7 +295,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -298,7 +303,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -306,7 +311,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -314,7 +319,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -322,7 +327,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -330,7 +335,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -338,7 +343,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -346,7 +351,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">11</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Mesut Ozil</td>
                         <td class="birth"><p>15.10.1988</p></td>
@@ -359,7 +364,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">38</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Chuba Akpom</td>
                         <td class="birth"><p>09.10.1997</p></td>
@@ -367,7 +372,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">38</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Chuba Akpom</td>
                         <td class="birth"><p>09.10.1997</p></td>
@@ -375,7 +380,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">38</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Chuba Akpom</td>
                         <td class="birth"><p>09.10.1997</p></td>
@@ -383,7 +388,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">38</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Chuba Akpom</td>
                         <td class="birth"><p>09.10.1997</p></td>
@@ -391,7 +396,7 @@ AppAsset::register($this);
                     <tr>
                         <td class="num">38</td>
                         <td class="nation">
-                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="Колумбия">  <!--Nation player-->
+                            <img src="http://s.ill.in.ua/i/country/16x0/87.gif" alt="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">  <!--Nation player-->
                         </td>
                         <td class="fio"> Chuba Akpom</td>
                         <td class="birth"><p>09.10.1997</p></td>

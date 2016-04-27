@@ -16,27 +16,27 @@ use yii\bootstrap\Nav;
                 'visible' => Yii::$app->user->isGuest
             ],
             [
-                'label' => 'BundesLiga',
+                'label' => 'Bundesliga',
                 'url' => ['football/bundes-liga'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
-                'label' => 'LaLiga',
+                'label' => 'La Liga',
                 'url' => ['football/la-liga'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
-                'label' => 'Liga1',
+                'label' => 'Liga 1',
                 'url' => ['football/liga1'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
-                'label' => 'SeriaA',
+                'label' => 'Seria A',
                 'url' => ['football/seria-a'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
-                'label' => 'UkranianLigue',
+                'label' => 'Ukranian Ligue',
                 'url' => ['football/ukranian-ligue'],
                 'visible' => Yii::$app->user->isGuest
             ],

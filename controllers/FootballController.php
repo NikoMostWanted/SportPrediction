@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\TeamsDB;
 use Yii;
 use yii\web\Controller;
 use app\models\OutputImages;
@@ -61,8 +62,27 @@ class FootballController extends Controller
         return $this->render('ukranianLigue',['dirLocal'=>$data['dirLocal'], 'all_pictures'=>$data['all_pictures'], 'name_pictures'=>$data['name_pictures']]);
     }
 
-    public function actionInfoClub()
+    public function actionInfoClub($name)
     {
-        return $this->render('infoClub');
+        @$team = TeamsDB::find()
+            ->joinWith('coach')
+            ->joinWith('league')
+            ->joinWith('president')
+            ->joinWith('statistic')
+            ->where(['like','teams.nameTeam',$name])
+            ->one();
+        @$coach_name = $team->coach->name.' '.$team->coach->surname;
+        @$president_name = $team->president->name.' '.$team->president->surname;
+        @$data = [
+            'icon'=>$team->icon,
+            'nameTeam'=>$team->nameTeam,
+            'coach'=>$coach_name,
+            'foundationYear'=>$team->foundationYear,
+            'field'=>$team->field,
+            'president'=>$president_name,
+            'website'=>$team->website,
+            'nameLeague'=>$team->league->nameLeague
+        ];
+        return $this->render('infoClub',['data' => $data]);
     }
 }
