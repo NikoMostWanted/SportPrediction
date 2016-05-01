@@ -64,16 +64,12 @@ class FootballController extends Controller
 
     public function actionInfoClub($name)
     {
-        @$team = TeamsDB::find()
-            ->joinWith('coach')
-            ->joinWith('league')
-            ->joinWith('president')
-            ->joinWith('statistic')
+        $team = TeamsDB::find()
             ->where(['like','teams.nameTeam',$name])
             ->one();
-        @$coach_name = $team->coach->name.' '.$team->coach->surname;
-        @$president_name = $team->president->name.' '.$team->president->surname;
-        @$data = [
+        $coach_name = $team->coach[0]->name.' '.$team->coach[0]->surname;
+        $president_name = $team->president->name.' '.$team->president->surname;
+        $data = [
             'icon'=>$team->icon,
             'nameTeam'=>$team->nameTeam,
             'coach'=>$coach_name,
@@ -81,7 +77,7 @@ class FootballController extends Controller
             'field'=>$team->field,
             'president'=>$president_name,
             'website'=>$team->website,
-            'nameLeague'=>$team->league->nameLeague
+            'nameLeague'=>$team->league[0]->nameLeague
         ];
         return $this->render('infoClub',['data' => $data]);
     }

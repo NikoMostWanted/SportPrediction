@@ -17,9 +17,4 @@ class StatisticsDB extends ActiveRecord
     {
         return 'statistics';
     }
-
-    public function getTeam()
-    {
-        return $this->hasMany(TeamsDB::className(),['id_statistic' => 'id']);
-    }
 }

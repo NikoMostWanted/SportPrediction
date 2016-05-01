@@ -20,21 +20,21 @@ class TeamsDB extends ActiveRecord
 
     public function getLeague()
     {
-        return $this->hasOne(LeaguesDB::className(),['id' => 'id_nameLeague']);
+        return $this->hasMany(LeaguesDB::className(),['id' => 'id_league'])->viaTable('league-team-Helper',['id_team' => 'id']);
     }
     
     public function getCoach()
     {
-        return $this->hasOne(CoachsDB::className(),['id' => 'id_coach']);
+        return $this->hasMany(CoachsDB::className(),['id' => 'id_coach']);
     }
 
     public function getPresident()
     {
-        return $this->hasOne(PresidentsDB::className(),['id' => 'id_president']);
+        return $this->hasOne(PresidentsDB::className(),['id' => 'id']);
     }
 
     public function getStatistic()
     {
-        return $this->hasOne(StatisticsDB::className(),['id' => 'id_statistic']);
+        return $this->hasOne(StatisticsDB::className(),['id' => 'id']);
     }
 }

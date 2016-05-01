@@ -17,9 +17,4 @@ class LeaguesDB extends ActiveRecord
     {
         return 'leagues';
     }
-
-    public function getTeam()
-    {
-        return $this->hasMany(TeamsDB::className(),['id_nameLeague' => 'id']);
-    }
 }
