@@ -184,23 +184,12 @@ a.desc:after {
 }
 
 .main-right {
-    width: 400px;
     float: right;
+    width: 40%;
 }
 
-element.style {
-}
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}
 
-article {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: top;
-}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -264,14 +253,11 @@ table {
     padding: 5px 0;
 }
 .col-left {
-    width: 500px;
     float: left;
+    width: 50%;
 }
 
 .game-feed {
-    position: relative;
-}
-.news-feed{
     position: relative;
 }
 
@@ -317,6 +303,64 @@ table {
     clear: both;
 }
 
+.main-tournament-table {
+    width: 100%;
+    border: 1px solid #e4e4e4;
+    margin-top: 10px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.main-tournament-table th.date {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.main-tournament-table th {
+    font: 10px/12px 'PFDinMedium', Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 8px 0 5px;
+    background: #ebebeb;
+}
+.main-tournament-table .games, .main-tournament-table .win, .main-tournament-table .draw, .main-tournament-table .lose, .main-tournament-table .goal, .main-tournament-table .miss, .main-tournament-table .diff, .main-tournament-table .score {
+    width: 40px;
+    text-align: center;
+}
+.main-tournament-table .logo {
+    width: 25px;
+    text-align: center;
+    padding-right:5%;
+}
+.main-tournament-table td {
+    font-size: 11px;
+    padding: 5px 0;
+    vertical-align: middle;
+}
+.main-tournament-table .form {
+    text-align: center;
+    width: 110px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.main-tournament-table .form a.lose-form {
+    background: #ff3c00;
+}
+.main-tournament-table .form a {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background: #ccc;
+    vertical-align: middle;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.main-tournament-table .form a.win-form {
+    background: #188a19;
+}
 
 
 

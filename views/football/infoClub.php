@@ -2,7 +2,7 @@
 
 use app\assets\AppAsset;
 use Yii\base;
-use yii\bootstrap\Nav;
+
 
 $this->title = $data['nameTeam'];
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
@@ -55,358 +55,858 @@ AppAsset::register($this);
                     <hr>
                  </div>
        </article>
-        <div>
-            <?php
-            echo Nav::widget([
-                'items' => [
-                    [
-                        'label' => 'Profile',
-                        'options' => ['class'=>'active'],
-                        'url' => [' '],
-                        'visible' => Yii::$app->user->isGuest
-                    ],
-                    [
-                        'label' => 'Statistics',
-                        'url' => [' '],
-                        'visible' => Yii::$app->user->isGuest
-                    ],
-                    [
-                        'label' => 'The history of the club',
-                        'url' => [' '],
-                        'visible' => Yii::$app->user->isGuest
-                    ],
-
-                ],
-                'options' => ['class' => ' nav navbar-default nav-pills'],
-            ]);
-            ?>
+        <div id="exTab1" class="row">
+            <ul  class="nav nav-pills">
+                <li class="active">
+                    <a  href="#1a" data-toggle="tab">Profile</a>
+                </li>
+                <li><a href="#2a" data-toggle="tab">Standings</a>
+                </li>
+                <li><a href="#3a" data-toggle="tab">Statistics</a>
+                </li>
+            </ul>
             <hr>
-        </div>
-        <div class="col-left" style="display:block">
-            <article class="game-feed">
-                <h3 class="feed-header">Last games</h3>
-                <table class="feed-table">
-                    <tbody>
-                        <tr>
-                            <th colspan="4">
-                                <p align="center"> 02.04.2016 Barclays league. 32 tour</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="time"> 17:00</td>
-                            <td class="left-team"><a href="#">Arsenal</a></td>
-                            <td class="score"><a href="#">4:0</a> </td>
-                            <td class="right-team"><a href="#">Watford</a> </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                    <tr>
-                        <th colspan="4">
-                            <p align="center"> 09.04.2016 Barclays league. 33 tour</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="time"> 14:45</td>
-                        <td class="left-team"><a href="#">West Ham</a></td>
-                        <td class="score"><a href="#">3:3</a> </td>
-                        <td class="right-team"><a href="#">Arsenal</a> </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                    <tr>
-                        <th colspan="4">
-                            <p align="center"> 17.04.2016 Barclays league. 34 tour</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="time"> 18:00</td>
-                        <td class="left-team"><a href="#">Arsenal</a></td>
-                        <td class="score"><a href="#">1:1</a> </td>
-                        <td class="right-team"><a href="#">Crystal Palace</a> </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                    <tr>
-                        <th colspan="4">
-                            <p align="center"> 21.04.2016 Barclays league. 30 tour</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="time"> 21:45</td>
-                        <td class="left-team"><a href="#">Arsenal</a></td>
-                        <td class="score"><a href="#">2:0</a> </td>
-                        <td class="right-team"><a href="#">West Brom</a> </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                    <tr>
-                        <th colspan="4">
-                            <p align="center"> 24.04.2016 Barclays league. 35 tour</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="time"> 16:05</td>
-                        <td class="left-team"><a href="#">Sunderland</a></td>
-                        <td class="score"><a href="#">0:0</a> </td>
-                        <td class="right-team"><a href="#">Arsenal</a> </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-        <div class="separator"></div>
-        <article class="game-feed">
-            <h3 class="feed-header">The following games</h3>
-            <table class="feed-table">
-                <tbody>
-                <tr>
-                    <th colspan="4">
-                        <p align="center"> 30.04.2016 Barclays league. 36 tour</p>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="time"> 19:30</td>
-                    <td class="left-team"><a href="#">Arsenal</a></td>
-                    <td class="score"><a href="#">-:-</a> </td>
-                    <td class="right-team"><a href="#">Norwich</a> </td>
-                </tr>
-                </tbody>
-                <tbody>
-                <tr>
-                    <th colspan="4">
-                        <p align="center"> 07.05.2016 Barclays league. 37 tour</p>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="time"> 17:00</td>
-                    <td class="left-team"><a href="#">Man City</a></td>
-                    <td class="score"><a href="#">-:-</a> </td>
-                    <td class="right-team"><a href="#">Arsenal</a> </td>
-                </tr>
-                </tbody>
-                <tbody>
-                <tr>
-                    <th colspan="4">
-                        <p align="center"> 15.05.2016 Barclays league. 38 tour</p>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="time"> 17:00</td>
-                    <td class="left-team"><a href="#">Arsenal</a></td>
-                    <td class="score"><a href="#">-:-</a> </td>
-                    <td class="right-team"><a href="#">Aston Villa</a> </td>
-                </tr>
-                </tbody>
-            </table>
-        </article>
-        </div>
-        <div  class="main-right">
-            <article class="team-consist">
-                <h3 class="feed-header">Command structure</h3>
-                <h4  class="consist-header"> Goalkeepers</h4>
-                <table class="consist-table">
-                    <tbody>
-                        <tr>
-                            <td class="num">13</td>
-                            <td class="nation">
-                                <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
-                            </td>
-                            <td class="fio"> David Ospina</td>
-                            <td class="birth"><p>31.08.1988</p></td>
-                        </tr>
-                        <tr>
-                            <td class="num">13</td>
-                            <td class="nation">
-                                <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
-                            </td>
-                            <td class="fio"> David Ospina</td>
-                            <td class="birth"><p>31.08.1988</p></td>
-                        </tr>
-                        <tr>
-                            <td class="num">13</td>
-                            <td class="nation">
-                                <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
-                            </td>
-                            <td class="fio"> David Ospina</td>
-                            <td class="birth"><p>31.08.1988</p></td>
-                        </tr>
-                        <tr>
-                            <td class="num">13</td>
-                            <td class="nation">
-                                <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
-                            </td>
-                            <td class="fio"> David Ospina</td>
-                            <td class="birth"><p>31.08.1988</p></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4  class="consist-header">Defenders</h4>
-                <table class="consist-table">
-                    <tbody>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Kiran Gibs</td>
-                        <td class="birth"><p>26.09.1989</p></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <h4  class="consist-header">Midfielders</h4>
-                <table class="consist-table">
-                    <tbody>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">11</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Mesut Ozil</td>
-                        <td class="birth"><p>15.10.1988</p></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <h4  class="consist-header">Forwards</h4>
-                <table class="consist-table">
-                    <tbody>
-                    <tr>
-                        <td class="num">38</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Chuba Akpom</td>
-                        <td class="birth"><p>09.10.1997</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">38</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Chuba Akpom</td>
-                        <td class="birth"><p>09.10.1997</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">38</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Chuba Akpom</td>
-                        <td class="birth"><p>09.10.1997</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">38</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Chuba Akpom</td>
-                        <td class="birth"><p>09.10.1997</p></td>
-                    </tr>
-                    <tr>
-                        <td class="num">38</td>
-                        <td class="nation">
-                            <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
-                        </td>
-                        <td class="fio"> Chuba Akpom</td>
-                        <td class="birth"><p>09.10.1997</p></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1a">
+                    <div class="col-left ">
+                        <article class="game-feed">
+                            <h3 class="feed-header">Last games</h3>
+                            <table class="feed-table">
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 02.04.2016 Barclays league. 32 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 17:00</td>
+                                    <td class="left-team"><a href="#">Arsenal</a></td>
+                                    <td class="score"><a href="#">4:0</a> </td>
+                                    <td class="right-team"><a href="#">Watford</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 09.04.2016 Barclays league. 33 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 14:45</td>
+                                    <td class="left-team"><a href="#">West Ham</a></td>
+                                    <td class="score"><a href="#">3:3</a> </td>
+                                    <td class="right-team"><a href="#">Arsenal</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 17.04.2016 Barclays league. 34 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 18:00</td>
+                                    <td class="left-team"><a href="#">Arsenal</a></td>
+                                    <td class="score"><a href="#">1:1</a> </td>
+                                    <td class="right-team"><a href="#">Crystal Palace</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 21.04.2016 Barclays league. 30 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 21:45</td>
+                                    <td class="left-team"><a href="#">Arsenal</a></td>
+                                    <td class="score"><a href="#">2:0</a> </td>
+                                    <td class="right-team"><a href="#">West Brom</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 24.04.2016 Barclays league. 35 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 16:05</td>
+                                    <td class="left-team"><a href="#">Sunderland</a></td>
+                                    <td class="score"><a href="#">0:0</a> </td>
+                                    <td class="right-team"><a href="#">Arsenal</a> </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                        <div class="separator"></div>
+                        <article class="game-feed">
+                            <h3 class="feed-header">The following games</h3>
+                            <table class="feed-table">
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 30.04.2016 Barclays league. 36 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 19:30</td>
+                                    <td class="left-team"><a href="#">Arsenal</a></td>
+                                    <td class="score"><a href="#">-:-</a> </td>
+                                    <td class="right-team"><a href="#">Norwich</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 07.05.2016 Barclays league. 37 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 17:00</td>
+                                    <td class="left-team"><a href="#">Man City</a></td>
+                                    <td class="score"><a href="#">-:-</a> </td>
+                                    <td class="right-team"><a href="#">Arsenal</a> </td>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p align="center"> 15.05.2016 Barclays league. 38 tour</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="time"> 17:00</td>
+                                    <td class="left-team"><a href="#">Arsenal</a></td>
+                                    <td class="score"><a href="#">-:-</a> </td>
+                                    <td class="right-team"><a href="#">Aston Villa</a> </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                    <div  class="main-right">
+                        <article class="team-consist ">
+                            <h3 class="feed-header">Command structure</h3>
+                            <h4  class="consist-header"> Goalkeepers</h4>
+                            <table class="consist-table">
+                                <tbody>
+                                <tr>
+                                    <td class="num">13</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> David Ospina</td>
+                                    <td class="birth"><p>31.08.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">13</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> David Ospina</td>
+                                    <td class="birth"><p>31.08.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">13</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> David Ospina</td>
+                                    <td class="birth"><p>31.08.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">13</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/co.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> David Ospina</td>
+                                    <td class="birth"><p>31.08.1988</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h4  class="consist-header">Defenders</h4>
+                            <table class="consist-table">
+                                <tbody>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Kiran Gibs</td>
+                                    <td class="birth"><p>26.09.1989</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h4  class="consist-header">Midfielders</h4>
+                            <table class="consist-table">
+                                <tbody>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">11</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/de.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Mesut Ozil</td>
+                                    <td class="birth"><p>15.10.1988</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h4  class="consist-header">Forwards</h4>
+                            <table class="consist-table">
+                                <tbody>
+                                <tr>
+                                    <td class="num">38</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Chuba Akpom</td>
+                                    <td class="birth"><p>09.10.1997</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">38</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Chuba Akpom</td>
+                                    <td class="birth"><p>09.10.1997</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">38</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Chuba Akpom</td>
+                                    <td class="birth"><p>09.10.1997</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">38</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Chuba Akpom</td>
+                                    <td class="birth"><p>09.10.1997</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">38</td>
+                                    <td class="nation">
+                                        <img src="<?=Yii::$app->request->baseUrl.'/images/flags/gb.png';?>"/>  <!--Nation player-->
+                                    </td>
+                                    <td class="fio"> Chuba Akpom</td>
+                                    <td class="birth"><p>09.10.1997</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                </div>
+                <div class="tab-pane" id="2a">
+                    <div class="container col-lg-12 col-md-10 col-sm-8 col-xs-12">
+                        <div class="col-top ">
+                            <article class="tournament-article">
+                                <h3 class="feed-header">Spain.La liga, 2015-2016</h3>
+                                <table class="main-tournament-table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="num" title="Place team">#</th>
+                                            <th></th>
+                                            <th class="date" title="Date remove">03.05.2016</th>
+                                            <th class="games" title="games">games</th>
+                                            <th class="win" title="wins">win</th>
+                                            <th class="draw" title="draws">draw</th>
+                                            <th class="lose" title="loses">lose</th>
+                                            <th class="goal" title="goals">goal</th>
+                                            <th class="miss" title="misses">miss</th>
+                                            <th class="diff" title="diff">diff</th>
+                                            <th class="score" title="score">score</th>
+                                            <th class="form" title="form">form</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">1</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Barcelona.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Barcelona</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">2</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">3</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Real Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Real Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">4</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Villarreal.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Villarreal</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">5</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">6</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">7</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">8</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">9</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">10</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">11</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">12</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">13</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">14</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">15</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">16</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">17</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">18</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">19</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">20</td>
+                                            <td class="logo">
+                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
+                                            </td>
+                                            <td class="team">
+                                                <a href="#">Atletico Madrid</a>
+                                            </td>
+                                            <td class="games">36</td>
+                                            <td class="win">27</td>
+                                            <td class="draw">4</td>
+                                            <td class="lose">5</td>
+                                            <td class="goal">104</td>
+                                            <td class="miss">29</td>
+                                            <td class="diff">75</td>
+                                            <td class="score">85</td>
+                                            <td class="form">
+                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                                <a href="#" class="win-form" title=" "></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="3a">
+                    <h3>Statistics page</h3>
+                </div>
+            </div>
         </div>
     </div>
+    <hr>
 </div>
