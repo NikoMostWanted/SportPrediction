@@ -184,6 +184,7 @@ a.desc:after {
 }
 
 .main-right {
+    width: 400px;
     float: right;
 }
 
