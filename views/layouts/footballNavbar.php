@@ -12,32 +12,32 @@ use yii\bootstrap\Nav;
         'items' => [
             [
                 'label' => 'Barclays',
-                'url' => ['football/barclays'],
+                'url' => ['football/leagues','league'=>'Barclays'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
                 'label' => 'Bundesliga',
-                'url' => ['football/bundes-liga'],
+                'url' => ['football/leagues', 'league'=>'Bundesliga'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
                 'label' => 'La Liga',
-                'url' => ['football/la-liga'],
+                'url' => ['football/leagues', 'league'=>'La Liga'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
                 'label' => 'Liga 1',
-                'url' => ['football/liga1'],
+                'url' => ['football/leagues', 'league'=>'Liga 1'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
                 'label' => 'Seria A',
-                'url' => ['football/seria-a'],
+                'url' => ['football/leagues', 'league'=>'Seria A'],
                 'visible' => Yii::$app->user->isGuest
             ],
             [
                 'label' => 'Ukranian Ligue',
-                'url' => ['football/ukranian-ligue'],
+                'url' => ['football/leagues', 'league'=>'Ukranian Premier League'],
                 'visible' => Yii::$app->user->isGuest
             ],
         ],

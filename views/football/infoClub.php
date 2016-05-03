@@ -2,11 +2,12 @@
 
 use app\assets\AppAsset;
 use Yii\base;
+use yii\helpers\Html;
 
 
-$this->title = $data['nameTeam'];
+$this->title = $team_data->nameTeam;
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
-$this->params['breadcrumbs'][] = ['label' => 'La Liga', 'url' => ['football/la-liga']];
+$this->params['breadcrumbs'][] = ['label' => $team_data->league[0]->nameLeague, 'url' => ['football/leagues','league'=>$team_data->league[0]->nameLeague]];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
@@ -20,35 +21,35 @@ AppAsset::register($this);
         <article class="info-article">
             <h3 class="feed-header">team profiles</h3>
                 <div class="info-logo">
-                    <img src="<?=Yii::$app->request->baseUrl;?><?=$data['icon']?>" alt="<?=$data['nameTeam']?>">
+                    <img src="<?=Yii::$app->request->baseUrl;?><?=$team_data->icon?>" alt="<?=$team_data->nameTeam?>">
                 </div>
                 <div class="info-intro">
-                    <h1><?=$data['nameTeam']?></h1>
+                    <h1><?=$team_data->nameTeam?></h1>
                     <table class="info-page-table">
                         <tbody>
                             <tr>
                                 <td> Manager </td>
-                                <td> <?=$data['president']?> </td>
+                                <td> <?=$team_data->president->name.' '.$team_data->president->surname?> </td>
                             </tr>
                             <tr>
                                 <td> Coach</td>
-                                <td> <?=$data['coach']?> </td>
+                                <td> <?=$team_data->coach[0]->name.' '.$team_data->coach[0]->surname?> </td>
                             </tr>
                             <tr>
                                 <td> Stadium</td>
-                                <td> <?=$data['field']?> </td>
+                                <td> <?=$team_data->field?> </td>
                             </tr>
                             <tr>
                                 <td> Year of foundation</td>
-                                <td> <?=$data['foundationYear']?> </td>
+                                <td> <?=$team_data->foundationYear?> </td>
                             </tr>
                             <tr>
                                 <td> League</td>
-                                <td> <?=$data['nameLeague']?> </td>
+                                <td> <?=$team_data->league[0]->nameLeague?> </td>
                             </tr>
                             <tr>
                                 <td>Club website </td>
-                                <td> <a href="<?=$data['website']?>" target="_blank"><?=$data['website']?></a></td>
+                                <td> <a href="<?=$team_data->website?>" target="_blank"><?=$team_data->website?></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -416,486 +417,33 @@ AppAsset::register($this);
                                             <th class="score" title="score">score</th>
                                             <th class="form" title="form">form</th>
                                         </tr>
-                                        <tr>
-                                            <td class="num">1</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Barcelona.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Barcelona</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">2</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">3</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Real Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Real Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">4</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Villarreal.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Villarreal</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">5</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">6</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">7</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">8</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">9</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">10</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">11</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">12</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">13</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">14</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">15</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">16</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">17</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">18</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">19</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="num">20</td>
-                                            <td class="logo">
-                                                <img src="<?=Yii::$app->request->baseUrl.'/images/spain/Atletico Madrid.png';?>"/>
-                                            </td>
-                                            <td class="team">
-                                                <a href="#">Atletico Madrid</a>
-                                            </td>
-                                            <td class="games">36</td>
-                                            <td class="win">27</td>
-                                            <td class="draw">4</td>
-                                            <td class="lose">5</td>
-                                            <td class="goal">104</td>
-                                            <td class="miss">29</td>
-                                            <td class="diff">75</td>
-                                            <td class="score">85</td>
-                                            <td class="form">
-                                                <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
-                                                <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                                <a href="#" class="win-form" title=" "></a>
-                                            </td>
-                                        </tr>
+                                        <?php for($i = 0; $i < count($statistics_club); $i++) { ?>
+                                            <tr>
+                                                <td class="num"><?=$statistics_club[$i]->statistic->place?></td>
+                                                <td class="logo">
+                                                    <img src="<?=Yii::$app->request->baseUrl.$statistics_club[$i]->icon;?>"/>
+                                                </td>
+                                                <td class="team">
+                                                    <?php echo Html::a($statistics_club[$i]->nameTeam, ['football/info-club', 'club'=>$statistics_club[$i]->nameTeam, 'league'=>$team_data->league[0]->nameLeague]) ?>
+                                                    <!--<a href="#"><?=$statistics_club[$i]->nameTeam?></a>-->
+                                                </td>
+                                                <td class="games"><?=$statistics_club[$i]->statistic->games?></td>
+                                                <td class="win"><?=$statistics_club[$i]->statistic->win?></td>
+                                                <td class="draw"><?=$statistics_club[$i]->statistic->draw?></td>
+                                                <td class="lose"><?=$statistics_club[$i]->statistic->lose?></td>
+                                                <td class="goal"><?=$statistics_club[$i]->statistic->goals?></td>
+                                                <td class="miss"><?=$statistics_club[$i]->statistic->missing?></td>
+                                                <td class="diff"><?=$statistics_club[$i]->statistic->goals - $statistics_club[$i]->statistic->missing?></td>
+                                                <td class="score"><?=$statistics_club[$i]->statistic->points?></td>
+                                                <td class="form">
+                                                    <a href="#" class="lose-form" title="Real 12:1 Barcelona"></a>
+                                                    <a href="#" class="lose-form" title="Barca 1:2 Valencia"></a>
+                                                    <a href="#" class="win-form" title=" "></a>
+                                                    <a href="#" class="win-form" title=" "></a>
+                                                    <a href="#" class="win-form" title=" "></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </article>
