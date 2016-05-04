@@ -9,7 +9,7 @@
 use app\assets\AppAsset;
 
 $this->title = 'Experts';
-$this->params['breadcrumbs'][] = ['label' => 'Other', 'url' => ['other/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Other', 'url' => ['other/index'], 'title' => 'Other'];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);

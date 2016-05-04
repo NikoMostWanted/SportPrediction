@@ -6,8 +6,8 @@ use yii\helpers\Html;
 
 
 $this->title = $team_data->nameTeam;
-$this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
-$this->params['breadcrumbs'][] = ['label' => $team_data->league[0]->nameLeague, 'url' => ['football/leagues','league'=>$team_data->league[0]->nameLeague]];
+$this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index'], 'title' => 'Football'];
+$this->params['breadcrumbs'][] = ['label' => $team_data->league[0]->nameLeague, 'url' => ['football/leagues','league'=>$team_data->league[0]->nameLeague], 'title' => $team_data->league[0]->nameLeague];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
@@ -49,7 +49,7 @@ AppAsset::register($this);
                             </tr>
                             <tr>
                                 <td>Club website </td>
-                                <td> <a href="<?=$team_data->website?>" target="_blank"><?=$team_data->website?></a></td>
+                                <td> <a title="<?=$team_data->nameTeam?>" href="<?=$team_data->website?>" target="_blank"><?=$team_data->website?></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -424,8 +424,7 @@ AppAsset::register($this);
                                                     <img src="<?=Yii::$app->request->baseUrl.$statistics_club[$i]->icon;?>"/>
                                                 </td>
                                                 <td class="team">
-                                                    <?php echo Html::a($statistics_club[$i]->nameTeam, ['football/info-club', 'club'=>$statistics_club[$i]->nameTeam, 'league'=>$team_data->league[0]->nameLeague]) ?>
-                                                    <!--<a href="#"><?=$statistics_club[$i]->nameTeam?></a>-->
+                                                    <?php echo Html::a($statistics_club[$i]->nameTeam, ['football/info-club', 'club'=>$statistics_club[$i]->nameTeam, 'league'=>$team_data->league[0]->nameLeague],['title'=>$statistics_club[$i]->nameTeam]) ?>
                                                 </td>
                                                 <td class="games"><?=$statistics_club[$i]->statistic->games?></td>
                                                 <td class="win"><?=$statistics_club[$i]->statistic->win?></td>

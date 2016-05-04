@@ -3,7 +3,7 @@
 use app\assets\AppAsset;
 
 $this->title = 'EuroLiga';
-$this->params['breadcrumbs'][] = ['label' => 'Basketball', 'url' => ['basketball/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Basketball', 'url' => ['basketball/index'], 'title' => 'Basketball'];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);

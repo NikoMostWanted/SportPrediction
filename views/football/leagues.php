@@ -5,7 +5,7 @@ use Yii\base;
 use yii\helpers\Html;
 
 $this->title = $team[0]->league[0]->nameLeague;
-$this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index'], 'title' => 'Football'];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
@@ -17,7 +17,7 @@ AppAsset::register($this);
         <?php $this->beginContent('@app/views/layouts/footballAlert.php'); ?>
         <?php $this->endContent(); ?>
         <?php for($i = 0; $i< count($team); $i++) { ?>
-            <?php echo Html::a("<img class='image-wrap' src='".Yii::$app->request->baseUrl.$team[$i]->icon."'/>", ['football/info-club', 'club'=>$team[$i]->nameTeam, 'league'=>$team[0]->league[0]->nameLeague]) ?>
+            <?php echo Html::a("<img alt='".$team[$i]->nameTeam."' class='image-wrap' src='".Yii::$app->request->baseUrl.$team[$i]->icon."'/>", ['football/info-club', 'club'=>$team[$i]->nameTeam, 'league'=>$team[0]->league[0]->nameLeague],['title'=>$team[$i]->nameTeam]) ?>
         <?php } ?>
     </div>
 </div>
