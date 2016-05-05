@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\PlayersDB;
 use app\models\TeamsDB;
 use Yii;
 use yii\web\Controller;
@@ -41,10 +42,15 @@ class FootballController extends Controller
             ->where(['like','leagues.nameLeague',$league])
             ->orderBy('statistics.place')
             ->all();
-        return $this->render('infoClub',['team_data' => $team_data, 'statistics_club'=>$statistics]);
+        $players = PlayersDB::find()
+            ->joinWith('team')
+            ->where(['like','teams.nameTeam',$club])
+            ->all();
+        return $this->render('infoClub',['team_data' => $team_data, 'statistics_club' => $statistics, 'players' => $players]);
     }
 
-    public  function actionFuzzyAlgorithm(){
+    public  function actionFuzzyAlgorithm()
+    {
         $object = new FuzzyAlgorithm();
         $c_array = array(array(2.55, 2.55, 2.55), array(4.25, 4.25, 4.25, 4.25), array(2.76, 2.76, 2.76, 2.76, 2.76), array(0.7, 0.7, 0.7, 0.7),
             array(8.5, 8.5, 8.5));

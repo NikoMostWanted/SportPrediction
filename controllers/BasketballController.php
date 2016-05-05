@@ -39,7 +39,8 @@ class BasketballController extends  Controller
         return $this->render('UALiga');
     }
 
-    public  function actionRotsteyinAlgorithm(){
+    public  function actionRotsteyinAlgorithm()
+    {
         $number_of_goals = array(109, 143, 161, 136, 161, 163, 213, 220, 162, 194, 164, 196, 245, 252, 240, 225);
         $object = new RotshteyinAlgorithm();
         $object->rules($number_of_goals);

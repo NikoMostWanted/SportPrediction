@@ -17,4 +17,19 @@ class PlayersDB extends ActiveRecord
     {
         return 'players';
     }
+
+    public function getPosition()
+    {
+        return $this->hasMany(PositionsDB::className(),['id' => 'id_position']);
+    }
+
+    public function getCountries()
+    {
+        return $this->hasMany(CountriesDB::className(),['id' => 'id_country'])->viaTable('country-player-Helper',['id_player' => 'id']);
+    }
+
+    public function getTeam()
+    {
+        return $this->hasMany(TeamsDB::className(),['id' => 'id_team'])->viaTable('player-team-Helper',['id_player' => 'id']);
+    }
 }
