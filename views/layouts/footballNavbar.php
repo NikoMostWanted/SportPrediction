@@ -4,45 +4,32 @@ use yii\bootstrap\Nav;
 
 /* @var $this yii\web\View */
 /* @var $content string */
+
+$uri = 'http://api.football-data.org/v1/soccerseasons/?season=2015';
+$reqPrefs['http']['method'] = 'GET';
+$reqPrefs['http']['header'] = 'X-Auth-Token: 7c6ad7dd16b341499df9be2f9dbe59e1';
+$stream_context = stream_context_create($reqPrefs);
+$response = file_get_contents($uri, false, $stream_context);
+$fixtures = json_decode($response);
+
 ?>
 <?php $this->beginPage() ?>
 <div class="col-lg-2 col-md-2 col-sm-8 col-xs-12">
-    <?php
-    echo Nav::widget([
-        'items' => [
-            [
-                'label' => 'Barclays',
-                'url' => ['football/leagues','league'=>'Barclays'],
-                'visible' => Yii::$app->user->isGuest
+
+    <?php for($i = 0; $i < count($fixtures); $i++) { ?>
+        <?php
+        echo Nav::widget([
+            'items' => [
+                [
+                    'label' => $fixtures[$i]->{'caption'},
+                    'url' => ['football/leagues','id'=>$fixtures[$i]->{'id'}, 'caption'=>$fixtures[$i]->{'caption'}],
+                    'visible' => Yii::$app->user->isGuest
+                ],
             ],
-            [
-                'label' => 'Bundesliga',
-                'url' => ['football/leagues', 'league'=>'Bundesliga'],
-                'visible' => Yii::$app->user->isGuest
-            ],
-            [
-                'label' => 'La Liga',
-                'url' => ['football/leagues', 'league'=>'La Liga'],
-                'visible' => Yii::$app->user->isGuest
-            ],
-            [
-                'label' => 'Liga 1',
-                'url' => ['football/leagues', 'league'=>'Liga 1'],
-                'visible' => Yii::$app->user->isGuest
-            ],
-            [
-                'label' => 'Seria A',
-                'url' => ['football/leagues', 'league'=>'Seria A'],
-                'visible' => Yii::$app->user->isGuest
-            ],
-            [
-                'label' => 'Ukranian Ligue',
-                'url' => ['football/leagues', 'league'=>'Ukranian Premier League'],
-                'visible' => Yii::$app->user->isGuest
-            ],
-        ],
-        'options' => ['class' => ' nav navbar-default nav-pills nav-stacked'],
-    ]);
-    ?>
+            'options' => ['class' => ' nav navbar-default nav-pills nav-stacked'],
+        ]);
+        ?>
+    <?php } ?>
+
 </div>
 <?php $this->endPage() ?>

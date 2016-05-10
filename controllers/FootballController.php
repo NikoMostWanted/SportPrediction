@@ -8,8 +8,7 @@
 
 namespace app\controllers;
 
-use app\models\PlayersDB;
-use app\models\TeamsDB;
+use app\models\APISite;
 use Yii;
 use yii\web\Controller;
 use app\models\FuzzyAlgorithm;
@@ -17,13 +16,15 @@ use app\models\FuzzyAlgorithm;
 class FootballController extends Controller
 {
 
-    public function actionLeagues($league)
+    public function actionLeagues($id, $caption)
     {
-        $team = TeamsDB::find()
-            ->joinWith('league')
-            ->where(['like','leagues.nameLeague',$league])
-            ->all();
-        return $this->render('leagues', ['team'=>$team]);
+        $fixtures = APISite::api('http://api.football-data.org/v1/soccerseasons/'.$id.'/teams');
+        $id_team = array();
+        for($i = 0; $i < $fixtures->{'count'}; $i++)
+        {
+            $id_team[$i] = explode('/',$fixtures->{'teams'}[$i]->{'_links'}->{'self'}->{'href'})[5];
+        }
+        return $this->render('leagues', ['team'=>$fixtures, 'caption'=>$caption, 'id_team' => $id_team, 'id_league' => $id]);
     }
 
     public function actionIndex()
@@ -31,22 +32,13 @@ class FootballController extends Controller
         return $this->render('index');
     }
 
-    public function actionInfoClub($club, $league)
+    public function actionInfoClub($id, $league)
     {
-        $team_data = TeamsDB::find()
-            ->where(['like','teams.nameTeam',$club])
-            ->one();
-        $statistics = TeamsDB::find()
-            ->joinWith('league')
-            ->joinWith('statistic')
-            ->where(['like','leagues.nameLeague',$league])
-            ->orderBy('statistics.place')
-            ->all();
-        $players = PlayersDB::find()
-            ->joinWith('team')
-            ->where(['like','teams.nameTeam',$club])
-            ->all();
-        return $this->render('infoClub',['team_data' => $team_data, 'statistics_club' => $statistics, 'players' => $players]);
+        $teams = APISite::api('http://api.football-data.org/v1/teams/'.$id);
+        $players = APISite::api('http://api.football-data.org/v1/teams/'.$id.'/players');
+        $statistics = APISite::api('http://api.football-data.org/v1/soccerseasons/'.$league.'/leagueTable');
+        $fixtures = APISite::api('http://api.football-data.org/v1/teams/'.$id.'/fixtures');
+        return $this->render('infoClub',['teams' => $teams, 'players' => $players, 'statistics' => $statistics, 'fixtures' => $fixtures]);
     }
 
     public  function actionFuzzyAlgorithm()
