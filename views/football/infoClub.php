@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = $teams->{'name'};
 $this->params['breadcrumbs'][] = ['label' => 'Football', 'url' => ['football/index'], 'title' => 'Football'];
-//$this->params['breadcrumbs'][] = ['label' => $team_data->league[0]->nameLeague, 'url' => ['football/leagues','league'=>$team_data->league[0]->nameLeague], 'title' => $team_data->league[0]->nameLeague];
+$this->params['breadcrumbs'][] = ['label' => $caption, 'url' => ['football/leagues','id' => $league, 'caption' => $caption], 'title' => $caption];
 $this->params['breadcrumbs'][] = $this->title;
 
 AppAsset::register($this);
@@ -100,7 +100,7 @@ AppAsset::register($this);
                                     <tr>
                                         <td class="num"><?=$players->{'players'}[$i]->{'jerseyNumber'}?></td>
                                         <td class="nation">
-                                            <p><?=$players->{'players'}[$i]->{'nationality'}?></p>  <!--Nation player-->
+                                            <img title="<?=$players->{'players'}[$i]->{'nationality'}?>" alt="<?=$players->{'players'}[$i]->{'nationality'}?>" src="<?=Yii::$app->request->baseUrl.'/images/flags/'.$players->{'players'}[$i]->{'nationality'}.'.png';?>"/>  <!--Nation player-->
                                         </td>
                                         <td class="fio"><?=$players->{'players'}[$i]->{'name'}?></td>
                                         <td class="birth"><p><?=$players->{'players'}[$i]->{'dateOfBirth'}?></p></td>
@@ -115,13 +115,13 @@ AppAsset::register($this);
                     <div class="container col-lg-12 col-md-10 col-sm-8 col-xs-12">
                         <div class="col-top ">
                             <article class="tournament-article">
-                                <h3 class="feed-header">Spain.La liga, 2015-2016</h3>
+                                <h3 class="feed-header"><?=$statistics->{'leagueCaption'}?></h3>
                                 <table class="main-tournament-table">
                                     <tbody>
                                         <tr>
                                             <th class="num" title="Place team">#</th>
                                             <th></th>
-                                            <th class="date" title="Date remove">03.05.2016</th>
+                                            <th class="date" title="Date remove">Team</th>
                                             <th class="games" title="games">games</th>
                                             <th class="win" title="wins">win</th>
                                             <th class="draw" title="draws">draw</th>
@@ -140,7 +140,7 @@ AppAsset::register($this);
                                                     <img style="width: 40px; height: 40px;" src="<?=$statistics->{'standing'}[$i]->{'crestURI'};?>"/>
                                                 </td>
                                                 <td class="team">
-                                                    <?php echo Html::a($statistics->{'standing'}[$i]->{'teamName'}, ['football/info-club'/*, 'club'=>$statistics_club[$i]->nameTeam, 'league'=>$team_data->league[0]->nameLeague*/],['title'=>$statistics->{'standing'}[$i]->{'teamName'}]) ?>
+                                                    <?php echo Html::a($statistics->{'standing'}[$i]->{'teamName'}, ['football/info-club', 'id'=>explode('/',$statistics->{'standing'}[$i]->{'_links'}->{'team'}->{'href'})[5], 'league'=>$league, 'caption' => $caption],['title'=>$statistics->{'standing'}[$i]->{'teamName'}]) ?>
                                                 </td>
                                                 <td class="games"><?=$statistics->{'standing'}[$i]->{'playedGames'}?></td>
                                                 <td class="win"><?=$statistics->{'standing'}[$i]->{'wins'}?></td>

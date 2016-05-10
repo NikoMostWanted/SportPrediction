@@ -32,13 +32,13 @@ class FootballController extends Controller
         return $this->render('index');
     }
 
-    public function actionInfoClub($id, $league)
+    public function actionInfoClub($id, $league, $caption)
     {
         $teams = APISite::api('http://api.football-data.org/v1/teams/'.$id);
         $players = APISite::api('http://api.football-data.org/v1/teams/'.$id.'/players');
         $statistics = APISite::api('http://api.football-data.org/v1/soccerseasons/'.$league.'/leagueTable');
         $fixtures = APISite::api('http://api.football-data.org/v1/teams/'.$id.'/fixtures');
-        return $this->render('infoClub',['teams' => $teams, 'players' => $players, 'statistics' => $statistics, 'fixtures' => $fixtures]);
+        return $this->render('infoClub',['teams' => $teams, 'players' => $players, 'statistics' => $statistics, 'fixtures' => $fixtures, 'league' => $league, 'caption' => $caption]);
     }
 
     public  function actionFuzzyAlgorithm()

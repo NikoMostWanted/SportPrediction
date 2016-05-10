@@ -17,7 +17,7 @@ AppAsset::register($this);
         <?php $this->beginContent('@app/views/layouts/footballAlert.php'); ?>
         <?php $this->endContent(); ?>
         <?php for($i = 0; $i < $team->{'count'}; $i++) { ?>
-            <?php echo Html::a("<img alt='".$team->{'teams'}[$i]->{'name'}."' style='width:40px; height:40px;' class='image-wrap' src='".$team->{'teams'}[$i]->{'crestUrl'}."'/>", ['football/info-club', 'id' => $id_team[$i], 'league' => $id_league ],['title'=>$team->{'teams'}[$i]->{'name'}]) ?>
+            <?php echo Html::a("<img alt='".$team->{'teams'}[$i]->{'name'}."' style='width:40px; height:40px;' class='image-wrap' src='".$team->{'teams'}[$i]->{'crestUrl'}."'/>", ['football/info-club', 'id' => $id_team[$i], 'league' => $id_league, 'caption' => $caption ],['title'=>$team->{'teams'}[$i]->{'name'}]) ?>
         <?php } ?>
     </div>
 </div>
