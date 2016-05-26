@@ -56,4 +56,14 @@ class FootballController extends Controller
         echo $object->find_m_p($x_array, $b_array, $c_array)."<br>";
         echo $object->find_m_p($x_array, $b_array, $c_array)."<br>";
     }
+
+    public  function actionSumAlgorithm(){
+        $object = new SumAlgorithm();
+        $name_first_team = "C";
+        $name_second_team = "D";
+        $b1 = array(11, 0, 0, 6, 4, 11, 8, 8, 1, 1);
+        $b2 = array(3, 1, 2, 12, 10, 3, 9, 3, 3, 0);
+        $w = array(9, 4, 6, 8, 7, 7, 8, 6, 6, 7);
+        echo $object->result($b1, $b2, $w,$name_first_team, $name_second_team);
+    }
 }
