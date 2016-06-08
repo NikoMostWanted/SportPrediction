@@ -75,6 +75,14 @@ AppAsset::register($this);
                         <article class="game-feed">
                             <h3 class="feed-header">The following games</h3>
                             <table class="feed-table">
+                                <tbody>
+                                <tr>
+                                    <td class="time">2016-07-12T13:30:00Z</td>
+                                    <td class="left-team"><a href="#">FC Bayern München</a></td>
+                                    <td class="score"><a href="#">-:-</a> </td>
+                                    <td class="right-team"><a href="#">Borussia Dortmund</a> </td>
+                                </tr>
+                                </tbody>
                                 <?php for($i =0; $i < $fixtures->{'count'}; $i++) { ?>
                                     <?php if($fixtures->{'fixtures'}[$i]->{'status'} == 'TIMED') { ?>
                                         <tbody>

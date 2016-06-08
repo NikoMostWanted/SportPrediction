@@ -41,6 +41,11 @@ class FootballController extends Controller
         return $this->render('infoClub',['teams' => $teams, 'players' => $players, 'statistics' => $statistics, 'fixtures' => $fixtures, 'league' => $league, 'caption' => $caption]);
     }
 
+    public function actionMatchday()
+    {
+        return $this->render('matchday');
+    }
+
     public  function actionFuzzyAlgorithm()
     {
         $object = new FuzzyAlgorithm();
@@ -65,5 +70,15 @@ class FootballController extends Controller
         $b2 = array(3, 1, 2, 12, 10, 3, 9, 3, 3, 0);
         $w = array(9, 4, 6, 8, 7, 7, 8, 6, 6, 7);
         echo $object->result($b1, $b2, $w,$name_first_team, $name_second_team);
+    }
+
+    public function actionDataMatch()
+    {
+        return $this->render('dataMatch');
+    }
+
+    public function actionResultMatch()
+    {
+        return $this->render('resultMatch');
     }
 }

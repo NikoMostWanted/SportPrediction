@@ -41,7 +41,9 @@ AppAsset::register($this);
             ['label' => 'Football', 'url' => ['/football/index']],
             ['label' => 'Tennis', 'url' => ['/tennis/index']],
             ['label' => 'Basketball', 'url' => ['/basketball/index']],
-            ['label' => 'Other', 'url' => ['/other/index']]
+            /*['label' => 'Other', 'url' => ['/other/index']],*/
+            ['label' => 'Exchange Rates', 'url' => ['/rates/index']],
+            ['label' => 'Disease Prognosis', 'url' => ['disease/index']]
         ],
     ]);
     NavBar::end();
